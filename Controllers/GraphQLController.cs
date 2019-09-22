@@ -24,12 +24,7 @@ namespace example_dotnet_ef_mysql_graphql.Controllers
         public async Task<IActionResult> Post([FromBody]GraphQLQuery query)
         {
             var inputs = query.Variables.ToInputs();
-
-            var schema = new Schema()
-            {
-                Query = new EatMoreQuery(_db)
-            };
-
+            var schema = new Schema() { Query = new EatMoreQuery(_db) };
             var result = await new DocumentExecuter().ExecuteAsync(_ =>
             {
                 _.Schema = schema;
@@ -42,7 +37,6 @@ namespace example_dotnet_ef_mysql_graphql.Controllers
             {
                 return BadRequest();
             }
-
             return Ok(result);
         }
     }

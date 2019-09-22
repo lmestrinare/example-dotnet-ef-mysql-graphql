@@ -14,7 +14,7 @@ namespace example_dotnet_ef_mysql_graphql.Mapping
         {
             entityBuilder.HasKey(x => x.Codigo);
 
-            entityBuilder.Property(x => x.Codigo).HasColumnName("ID_MODULO").IsRequired();
+            entityBuilder.Property(x => x.Codigo).HasColumnName("ID_MODULO").IsRequired().HasMaxLength(10); ;
             entityBuilder.Property(x => x.Nome).HasColumnName("NOME_MODULO").IsRequired().HasMaxLength(50);
             entityBuilder.Property(x => x.Status).HasColumnName("STATUS_MODULO").IsRequired();
         }

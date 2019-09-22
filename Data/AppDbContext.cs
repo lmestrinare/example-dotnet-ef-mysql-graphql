@@ -12,7 +12,6 @@ namespace example_dotnet_ef_mysql_graphql.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options ) : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,12 +19,16 @@ namespace example_dotnet_ef_mysql_graphql.Data
             base.OnModelCreating(modelBuilder);
 
             new UsuarioMap(modelBuilder.Entity<Usuario>());
+            new UsuarioPerfilMap(modelBuilder.Entity<UsuarioPerfil>());
             new PerfilMap(modelBuilder.Entity<Perfil>());
+            new PerfilModuloMap(modelBuilder.Entity<PerfilModulo>());
             new ModuloMap(modelBuilder.Entity<Modulo>());
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<UsuarioPerfil> UsuariosPerfis { get; set; }
         public DbSet<Perfil> Perfis { get; set; }
+        public DbSet<PerfilModulo> PerfisModulos { get; set; }
         public DbSet<Modulo> Modulos { get; set; }
     }
 }

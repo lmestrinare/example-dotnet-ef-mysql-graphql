@@ -12,6 +12,7 @@ namespace example_dotnet_ef_mysql_graphql.Data
         {
             context.Database.EnsureCreated();
 
+            #region Usuarios
             if (context.Usuarios.Any())
             {
                 return;
@@ -30,6 +31,47 @@ namespace example_dotnet_ef_mysql_graphql.Data
             }
 
             context.SaveChanges();
+            #endregion
+            #region Perfis
+            if (context.Perfis.Any())
+            {
+                return;
+            }
+
+            var perfis = new Perfil[]
+            {
+              new Perfil {Codigo=1, Nome="DIRETORIA" },
+              new Perfil {Codigo=2, Nome="GERENTE" },
+              new Perfil {Codigo=3, Nome="CAIXA" }
+            };
+
+            foreach (Perfil p in perfis)
+            {
+                context.Perfis.Add(p);
+            }
+
+            context.SaveChanges();
+            #endregion
+            #region Modulos
+            if (context.Modulos.Any())
+            {
+                return;
+            }
+
+            var modulos = new Modulo[]
+            {
+              new Modulo {Codigo="TAB009A", Nome="CADASTRO DE PRODUTOS", Status=true },
+              new Modulo {Codigo="TAB001A", Nome="CADASTRO DE CLIENTES", Status=true },
+              new Modulo {Codigo="TAB002A", Nome="CADASTRO DE FORNECEDORES", Status=true }
+            };
+
+            foreach (Modulo p in modulos)
+            {
+                context.Modulos.Add(p);
+            }
+
+            context.SaveChanges();
+            #endregion
         }
     }
 }

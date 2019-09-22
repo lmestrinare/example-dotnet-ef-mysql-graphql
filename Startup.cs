@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using example_dotnet_ef_mysql_graphql.Data;
+using GraphiQl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -46,6 +47,7 @@ namespace example_dotnet_ef_mysql_graphql
             }
 
             app.UseHttpsRedirection();
+            //app.UseGraphiQl();
             app.UseMvc();
 
             InicializaDB.Inicializa(context);

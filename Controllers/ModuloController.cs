@@ -27,7 +27,7 @@ namespace example_dotnet_ef_mysql_graphql.Controllers
 
         // GET: api/modulo/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Modulo>> GetById(int id)
+        public async Task<ActionResult<Modulo>> GetById(string id)
         {
             var Item = await db.Modulos.FindAsync(id);
             if (Item == null)
@@ -48,7 +48,7 @@ namespace example_dotnet_ef_mysql_graphql.Controllers
 
         // PUT: api/modulo/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Modulo item)
+        public async Task<IActionResult> Put(string id, Modulo item)
         {
             if (id != item.Codigo)
             {
@@ -61,7 +61,7 @@ namespace example_dotnet_ef_mysql_graphql.Controllers
 
         // DELETE: api/modulo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var Item = await db.Modulos.FindAsync(id);
             if (Item == null)

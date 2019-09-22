@@ -12,11 +12,14 @@ namespace example_dotnet_ef_mysql_graphql.Types
         public UsuarioType()
         {
             Name = "Usuario";
-            Field(x => x.Codigo).Description("Código");
-            Field(x => x.Nome).Description("Nome");
-            Field(x => x.Login).Description("Login");
-            Field(x => x.Senha).Description("Senha");
-            Field(x => x.Status).Description("Status");
+            Field(x => x.Codigo, type: typeof(IdGraphType)).Description("Código do Usuário");
+            Field(x => x.Nome).Description("Nome do Usuário");
+            Field(x => x.Login).Description("Login do Usuário");
+            Field(x => x.Senha).Description("Senha do Usuário");
+            Field(x => x.Status).Description("Status do Usuário");
+            Field(x => x.Perfis).Description("Perfis do Usuário");
+
+            Field<ListGraphType<UsuarioPerfilType>>("perfis");
         }
     }
 }

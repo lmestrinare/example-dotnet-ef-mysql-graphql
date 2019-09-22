@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using example_dotnet_ef_mysql_graphql.Types;
+using GraphQL.Types;
 
 namespace example_dotnet_ef_mysql_graphql.Models
 {
@@ -15,7 +17,6 @@ namespace example_dotnet_ef_mysql_graphql.Models
         public string Senha { get; set; }
         public bool Status { get; set; }
 
-        //public ICollection<Perfil> Perfis { get; set; }
-        //public ICollection<Modulo> Modulos { get; set; }
+        public List<UsuarioPerfil> Perfis { get; set; }
     }
 }

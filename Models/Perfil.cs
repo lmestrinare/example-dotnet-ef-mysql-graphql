@@ -10,7 +10,7 @@ namespace example_dotnet_ef_mysql_graphql.Models
         public int Codigo { get; set; }
         public string Nome { get; set; }
 
-        //public ICollection<Usuario> Usuarios { get; set; }
-        //public ICollection<Modulo> Modulos { get; set; }
+        public List<UsuarioPerfil> Usuarios { get; set; }
+        public List<PerfilModulo> Modulos { get; set; }
     }
 }
